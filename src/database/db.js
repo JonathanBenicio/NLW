@@ -7,23 +7,23 @@ const db = new sqlite3.Database("./src/database/database.db")
 
 module.exports = db
 
-// //utilizar o objeto de banco de dados, para nosssas operações
-// db.serialize(() => {
-//     //como comandos SQL irei:
+//utilizar o objeto de banco de dados, para nosssas operações
+db.serialize(() => {
+    //como comandos SQL irei:
 
-//     //cria uma tabela
-//     db.run(`
-//         CREATE TABLE IF NOT EXISTS places (
-//             id INTEGER PRIMARY KEY AUTOINCREMENT,
-//             image TEXT,
-//             name TEXT,
-//             address TEXT,
-//             address2 TEXT,
-//             state TEXT,
-//             city TEXT,
-//             items TEXT
-//         );
-//     `)
+    //cria uma tabela
+    db.run(`
+        CREATE TABLE IF NOT EXISTS places (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            image TEXT,
+            name TEXT,
+            address TEXT,
+            address2 TEXT,
+            state TEXT,
+            city TEXT,
+            items TEXT
+        );
+    `)
 
 //     // //inserir dados na tabela
 //     // const query = `
@@ -59,14 +59,14 @@ module.exports = db
 //     // db.run(query, values, afterInsertData)
 
 //     //consultar os dados na tabela
-//     db.all(`SELECT * FROM places`, function (err, rows) {
-//         if (err) {
-//             return colonso.log(err)
-//         }
+    // db.all(`SELECT * FROM places`, function (err, rows) {
+    //     if (err) {
+    //         return colonso.log(err)
+    //     }
 
-//         console.log("Aqui estão seu registros:")
-//         console.log(rows)
-//     })
+    //     console.log("Aqui estão seu registros:")
+    //     console.log(rows)
+    // })
 
 //     //deletar um dado da tabela
 //     // db.run(`DELETE FROM places WHERE id = ?`, [3], function(err) {
@@ -76,4 +76,4 @@ module.exports = db
 
 //     //     console.log("Registro Deletado com sucesso")
 //     // })
-// })
+})
